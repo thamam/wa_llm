@@ -20,6 +20,19 @@ def test_group_normalization():
     assert group_validated.owner_jid == "1234567890@s.whatsapp.net"
 
 
+def test_group_with_summary_instructions():
+    # Test with custom summary instructions
+    group = Group(
+        group_jid="123456789-123456@g.us",
+        summary_instructions="Custom summary format: focus on technical discussions only"
+    )
+    assert group.summary_instructions == "Custom summary format: focus on technical discussions only"
+
+    # Test default None
+    group_default = Group(group_jid="987654321-987654@g.us")
+    assert group_default.summary_instructions is None
+
+
 @pytest.mark.asyncio
 async def test_get_related_community_groups():
     group = Group(group_jid="g1@g.us", community_keys=["key1"])

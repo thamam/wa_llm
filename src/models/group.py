@@ -32,6 +32,9 @@ class BaseGroup(SQLModel):
     )
     managed: bool = Field(default=False)
     notify_on_spam: bool = Field(default=False)
+    summary_instructions: Optional[str] = Field(
+        default=None, description="Custom instructions for the summary generation"
+    )
     community_keys: Optional[List[str]] = Field(
         default=None, sa_column=Column(ARRAY(String))
     )
