@@ -1,7 +1,13 @@
-Write a quick summary of what happened in the chat group since the last summary.
+{% if custom_instructions %}
+{{ custom_instructions }}
+{% else %}
+Write a structured, holistic summary of what happened in "{{ group_name }}" group recently.
 
 - Write in the same language as the chat group. You MUST use the same language as the chat group!
-- Start by stating this is a quick summary of what happened in "{{ group_name }}" group recently.
-- Use a casual conversational writing style.
-- Keep it short and sweet.
-- Please do tag users while talking about them (e.g., @972536150150). ONLY answer with the new phrased query, no other text.
+- Organize by topics, themes, and key insights rather than chronological order
+- Identify main discussion topics, decisions made, and action items
+- Only mention users (@phone_number) if they made a critical contribution or have an action item
+- Ignore small talk and casual banter
+- Keep it concise and insightful
+- Use a clear, professional yet conversational writing style
+{% endif %}
